@@ -1,29 +1,29 @@
 import requests
 import sys
 
-def DeleteMultipleLines(n=1):
+def delete_multiple_lines(n=1):
     """Delete the last line in the STDOUT."""
     for _ in range(n):
         sys.stdout.write("\x1b[1A")  # cursor up one line
         sys.stdout.write("\x1b[2K")  # delete the last line
 
 def PrintFact():
-    ZeFact = requests.get("https://uselessfacts.jsph.pl/random.txt?language=en")
-    print("\n",ZeFact.text,"\n")
-    DeleteMultipleLines(2)
+    ze_fact = requests.get("https://uselessfacts.jsph.pl/random.txt?language=en")
+    print("\n",ze_fact.text,"\n")
+    delete_multiple_lines(2)
 
 while True:
-    Menu = 0
-    Menu = input("Enter 1 to get a random fact and e to exit: ")
-    if Menu == "1":
-        Menu=int(Menu)
+    menu = 0
+    menu = input("Enter 1 to get a random fact and e to exit: ")
+    if menu == "1":
+        menu=int(menu)
     else:
-        Menu = Menu.lower()
+        menu = menu.lower()
 
-    if Menu == 1:
+    if menu == 1:
         PrintFact()
-    elif Menu == "e":
-        DeleteMultipleLines(1)
+    elif menu == "e":
+        delete_multiple_lines(1)
         exit(0)
     else:
         print("Please enter 1 or e!")
