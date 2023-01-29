@@ -8,8 +8,8 @@ def delete_multiple_lines(n=1):
         sys.stdout.write("\x1b[2K")  # delete the last line
 
 def PrintFact():
-    ze_fact = requests.get("https://uselessfacts.jsph.pl/random.txt?language=en")
-    print("\n",ze_fact.text,"\n")
+    fact = requests.get("https://uselessfacts.jsph.pl/random.txt?language=en")
+    print("\n",fact.text,"\n")
     delete_multiple_lines(2)
 
 while True:
